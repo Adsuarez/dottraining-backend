@@ -1,0 +1,15 @@
+{
+	"exclude": ["node_modules"],
+	"compilerOptions": {
+		"module": "Node19",
+		"baseUrl": "./",
+		"paths": {
+			"#Config/*": ["./src/config/*"],
+			"#Controllers/*": ["./src/controllers/*"],
+			"#Dto/*": ["./src/dto/*"],
+			"#Helpers/*": ["./src/helpers/*"],
+			"#Routes/*": ["./src/routes/*"],
+			"#Schemas/*": ["./src/schemas/*"]
+		}
+	}
+}

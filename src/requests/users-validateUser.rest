@@ -1,0 +1,45 @@
+// login ➡️ Admin user
+POST http://localhost:3333/api/users/login HTTP/1.1
+Content-type: application/json
+
+{
+    "email": "admin@dottraining.com",
+    "password": "AdminPassword"
+}
+
+// login ➡️ student user
+###
+POST http://localhost:3333/api/users/login HTTP/1.1
+Content-type: application/json
+
+{
+    "email": "aprendiz01@ejemplo.com",
+    "password": "AprendizPassword"
+}
+
+###
+// login ➡️ empty info
+POST http://localhost:3333/api/users/login HTTP/1.1
+Content-type: application/application/json
+
+{
+
+}
+
+###
+// login ➡️ wrong email
+POST http://localhost:3333/api/users/login HTTP/1.1
+Content-type: application/application/json
+
+{
+
+}
+
+###
+// login ➡️ wrong password
+POST http://localhost:3333/api/users/login HTTP/1.1
+Content-type: application/application/json
+
+{
+
+}
