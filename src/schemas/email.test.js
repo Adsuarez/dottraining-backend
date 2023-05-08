@@ -14,8 +14,17 @@ const invalidFormat = [
 	'@example.com',
 	'tester@@.com',
 ]
+const nonexistingEmailInDB = [
+	'test@example.com',
+	'admin@dot.com',
+	'something@dottraining.com',
+	'aprendiz@ejemplo.com',
+	'aprendiz01@dottraining.com',
+	'aprendiz02@ejemplo.com',
+]
+const existingEmail = ['admin@dottraining.com', 'aprendiz01@ejemplo.com']
 
-describe('given incorrect information', () => {
+describe('given an incorrect argument', async () => {
 	it('should response false with nulish argument', async () => {
 		for (const information of nulishInformation) {
 			const response = await validateEmail(information)
@@ -34,6 +43,22 @@ describe('given incorrect information', () => {
 		for (const information of invalidFormat) {
 			const response = await validateEmail(information)
 			assert.strictEqual(response, false)
+		}
+	})
+
+	it('should response false with nonextisting email in database', async () => {
+		for (const information of nonexistingEmailInDB) {
+			const response = await validateEmail(information)
+			assert.strictEqual(response, false)
+		}
+	})
+})
+
+describe('given a correct argument', async () => {
+	it('should response true with existing email in database', async () => {
+		for (const information of existingEmail) {
+			const response = await validateEmail(information)
+			assert.strictEqual(response, true)
 		}
 	})
 })
