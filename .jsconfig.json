@@ -9,7 +9,8 @@
 			"#Dto/*": ["./src/dto/*"],
 			"#Helpers/*": ["./src/helpers/*"],
 			"#Routes/*": ["./src/routes/*"],
-			"#Schemas/*": ["./src/schemas/*"]
+			"#Schemas/*": ["./src/schemas/*"],
+			"#Tests/*": ["./tests/*"]
 		}
 	}
 }

@@ -22,6 +22,7 @@
 		"eslint-config-prettier": "8.8.0",
 		"prettier": "2.8.8",
 		"standard": "17.0.0",
+		"supertest": "6.3.3",
 		"tap": "16.3.4"
 	},
 	"imports": {
@@ -30,7 +31,8 @@
 		"#Dto/*": "./src/dto/*",
 		"#Helpers/*": "./src/helpers/*",
 		"#Routes/*": "./src/routes/*",
-		"#Schemas/*": "./src/schemas/*"
+		"#Schemas/*": "./src/schemas/*",
+		"#Tests/*": "./tests/*"
 	},
 	"eslintConfig": {
 		"extends": [
