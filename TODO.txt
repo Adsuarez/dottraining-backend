@@ -1,0 +1,1 @@
+- ❌Pending manage error, because testing in validateUser pass because of Catching error console loge implemented
