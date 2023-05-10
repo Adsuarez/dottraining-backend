@@ -1,6 +1,7 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
 import { validateEmail } from '#Schemas/email.schema.js'
+import { nonexistingEmailInDB, existingEmail } from '#Tests/constants.js'
 
 const nulishInformation = [undefined, null, '', 0]
 const invalidType = [123, false, true, [], {}, Symbol]
@@ -14,15 +15,6 @@ const invalidFormat = [
 	'@example.com',
 	'tester@@.com',
 ]
-const nonexistingEmailInDB = [
-	'test@example.com',
-	'admin@dot.com',
-	'something@dottraining.com',
-	'aprendiz@ejemplo.com',
-	'aprendiz01@dottraining.com',
-	'aprendiz02@ejemplo.com',
-]
-const existingEmail = ['admin@dottraining.com', 'aprendiz01@ejemplo.com']
 
 describe.skip('given an incorrect argument', async () => {
 	it('should respond false with nulish argument', async () => {
