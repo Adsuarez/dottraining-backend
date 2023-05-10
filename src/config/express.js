@@ -5,7 +5,6 @@ const expressApp = express()
 
 console.clear()
 expressApp.use(express.json())
-
 expressApp.use('/api', userRoutes)
 
 export default expressApp
