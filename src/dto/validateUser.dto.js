@@ -1,13 +1,22 @@
-// const AMOUNT_OF_VALUES = 2
-
 import { badRequest } from '#Helpers/errors.js'
+import { AMOUNT_OF_VALUES_LOGIN } from '#Config/constants.js'
+import { validateEmail } from '#Schemas/email.schema.js'
 
-export default function validateUserDTO(req, res, next) {
-	console.log({ req })
+export default async function validateUserDTO(req, res, next) {
+	console.log('\n\n\nStay inside validateUserDTO 👍\n\n')
 	const { body } = req
-	console.log({ body })
-	if (Object.keys(body).length === 0) return badRequest(res)
-	const { email, password } = body
-	console.log({ email, password })
+	if (Object.keys(body).length !== AMOUNT_OF_VALUES_LOGIN)
+		return badRequest(res)
+	const { email } = body
+	/*
+	validateEmail(email).then((check) => {
+		console.log({ check })
+		if (check === false) return res.status(401)
+		next()
+	})
+	*/
+
+	const emailChecked = await validateEmail(email)
+	if (emailChecked === false) return res.status(401)
 	next()
 }
