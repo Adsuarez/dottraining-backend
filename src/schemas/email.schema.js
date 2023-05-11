@@ -7,12 +7,10 @@ export const emailSchema = {
 }
 
 export const validateEmail = async (email) => {
-	console.log('\n\nInside validateEmail\n')
 	if (emailSchema.required && !email) return false
 	if (typeof email !== typeof emailSchema.type) return false
 	if (emailSchema.format.test(email) !== true) return false
 	const existEmailInDB = await isEmailInDB(email)
 	if (existEmailInDB === false) return false
-	console.log('pass DB conditional')
 	return true
 }
