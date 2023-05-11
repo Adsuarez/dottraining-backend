@@ -4,7 +4,7 @@ import {
 	createUser,
 	validateUser,
 } from '#Controllers/users.controllers.js'
-import validateUserDTO from '#Dto/validateUser.dto.js'
+import { validateUserDTO } from '#Dto/validateUser.dto.js'
 
 const router = Router()
 
