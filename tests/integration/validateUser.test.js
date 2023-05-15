@@ -1,4 +1,4 @@
-import { describe, it, before, after } from 'node:test'
+import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
 import request from 'supertest'
 import {
@@ -16,10 +16,8 @@ const wrongAmountOfValues = [
 	{},
 ]
 
-describe(`POST ${API_USERS_LOGIN}`, async () => {
-	before(() => console.log(`--------->Testing Start<---------`))
-	after(() => console.log(`--------->Testing Finish<---------`))
-	describe.skip('given incorrect information in body', async () => {
+describe.skip(`Testing -> POST ${API_USERS_LOGIN}`, async () => {
+	describe('given incorrect information in body', async () => {
 		it('should respond with 400 status code with nulish data', async () => {
 			for (const data of nulishData) {
 				const response = await request(BASE_URL)
