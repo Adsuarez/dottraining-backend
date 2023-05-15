@@ -1,1 +1,1 @@
-- ❌Pending manage error, because testing in validateUser pass because of Catching error console loge implemented
+- ❌Pending manage error in testing, because in validateUser pass its test due console log to catch error.
