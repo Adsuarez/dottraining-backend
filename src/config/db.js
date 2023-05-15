@@ -1,4 +1,4 @@
-import { createPool } from 'mysql2/promise'
+import { createPool } from 'mysql'
 import { HOST, USER, PASSWORD, DB_PORT, DATABASE } from '#Config/environment.js'
 
 export const pool = createPool({

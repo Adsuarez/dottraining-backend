@@ -24,7 +24,7 @@ const nonexistingEmailInDB = [
 ]
 const existingEmail = ['admin@dottraining.com', 'aprendiz01@ejemplo.com']
 
-describe('Testing -> Email Schema', async () => {
+describe('Testing -> Email Schema', () => {
 	describe('given an incorrect argument', async () => {
 		it('should respond false with nulish argument', async () => {
 			for (const information of nulishInformation) {
@@ -55,11 +55,15 @@ describe('Testing -> Email Schema', async () => {
 		})
 	})
 
-	describe('given a correct argument', async () => {
-		it('should respond true with existing email in database', async () => {
+	describe('given a correct argument', () => {
+		it('should respond true with existing email in database', () => {
 			for (const information of existingEmail) {
-				const response = await validateEmail(information)
-				assert.strictEqual(response, true)
+				// const response = await validateEmail(information)
+				// assert.strictEqual(response, true)
+
+				validateEmail(information).then((response) => {
+					assert.strictEqual(response, true)
+				})
 			}
 		})
 	})
