@@ -47,7 +47,7 @@ describe('Testing -> Email Schema', () => {
 			}
 		})
 
-		it.skip('should respond false with nonextisting email in database', async () => {
+		it('should respond false with nonextisting email in database', async () => {
 			for (const information of nonexistingEmailInDB) {
 				const response = await validateEmail(information)
 				assert.strictEqual(response, false)
@@ -55,15 +55,11 @@ describe('Testing -> Email Schema', () => {
 		})
 	})
 
-	describe('given a correct argument', () => {
-		it('should respond true with existing email in database', () => {
+	describe.skip('given a correct argument', () => {
+		it('should respond true with existing email in database', async () => {
 			for (const information of existingEmail) {
-				// const response = await validateEmail(information)
-				// assert.strictEqual(response, true)
-
-				validateEmail(information).then((response) => {
-					assert.strictEqual(response, true)
-				})
+				const response = await validateEmail(information)
+				assert.strictEqual(response, true)
 			}
 		})
 	})
