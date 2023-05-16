@@ -1,3 +1,5 @@
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admintest';
+
 SHOW DATABASES;
 
 CREATE DATABASE dottraining_db;
