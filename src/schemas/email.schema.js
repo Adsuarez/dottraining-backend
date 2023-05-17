@@ -11,7 +11,6 @@ export const validateEmail = async (email) => {
 	if (typeof email !== typeof emailSchema.type) return false
 	if (emailSchema.format.test(email) !== true) return false
 	const existEmailInDB = await isEmailInDB(email)
-	console.log({ existEmailInDB })
 	if (existEmailInDB === false) return false
 	return true
 }
