@@ -1,1 +1,3 @@
-- ❌Pending manage error in testing, because in validateUser pass its test due console log to catch error.
+- ❌ Pending manage error in testing, because in validateUser pass its test due console log to catch error.
+- ❌ Pending define if closeDBConnections is necesary or if make problems. It was created to solve terminal open listening needlessly DB.
+- ❌ Pending add closeDBConnection in password tests
