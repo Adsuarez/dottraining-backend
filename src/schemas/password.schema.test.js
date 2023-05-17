@@ -1,6 +1,7 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
 import { validatePassword } from '#Schemas/password.schema.js'
+import { existingEmailWithWrongPassword } from '#Tests/constants.js'
 
 const nulishInformation = [undefined, null, '', 0]
 const invalidType = [123, false, true, [], {}, Symbol]
@@ -17,7 +18,7 @@ const invalidFormat = [
 ]
 const correctPassword = ['Qwer12345', '1234qweR', 'ZXCvb789', '$%&Qw123']
 
-describe.skip('Testing -> Password Schema', async () => {
+describe('Testing -> Password Schema', async () => {
 	describe('given an incorrect argument', async () => {
 		it('should respond false with nulish argument', async () => {
 			for (const information of nulishInformation) {
@@ -46,6 +47,15 @@ describe.skip('Testing -> Password Schema', async () => {
 			for (const information of correctPassword) {
 				const response = await validatePassword(information)
 				assert.strictEqual(response, true)
+			}
+		})
+	})
+
+	describe('given a correct email', async () => {
+		it('should respond false with a correct email and wrong password in DB', async () => {
+			for (const { email, password } of existingEmailWithWrongPassword) {
+				const response = await validatePassword(password, email)
+				assert.strictEqual(response, false)
 			}
 		})
 	})
