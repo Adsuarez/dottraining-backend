@@ -5,6 +5,7 @@ import {
 	BASE_URL,
 	API_USERS_LOGIN,
 	nonexistingUserInDB,
+	existingEmailWithWrongPassword,
 } from '#Tests/constants.js'
 import { jsonErrorResponse } from '#Config/constants.js'
 
@@ -28,7 +29,6 @@ describe.skip(`Testing -> POST ${API_USERS_LOGIN}`, async () => {
 		})
 		it('should respond with an error message within the JSON given nulish data', async () => {
 			for (const data of nulishData) {
-				console.log({ data })
 				const response = await request(BASE_URL)
 					.post(API_USERS_LOGIN)
 					.send(data)
@@ -44,18 +44,21 @@ describe.skip(`Testing -> POST ${API_USERS_LOGIN}`, async () => {
 			}
 		})
 	})
-	describe('given anauthorized email or password', async () => {
-		it('should response 401 status code with nonexistig email-password in database', async () => {
+	describe('given unauthorized email or password', async () => {
+		it('should response 401 status code with nonexistig email in database', async () => {
 			for (const data of nonexistingUserInDB) {
 				const response = await request(BASE_URL)
 					.post(API_USERS_LOGIN)
 					.send(data)
-
-				if (response) {
-					assert.strictEqual(response.statusCode, 401)
-				} else {
-					assert.strictEqual(503, 401)
-				}
+				assert.strictEqual(response?.statusCode, 401)
+			}
+		})
+		it.skip('should response 401 status code with existing email in database but wrong password', async () => {
+			for (const data of existingEmailWithWrongPassword) {
+				const response = await request(BASE_URL)
+					.post(API_USERS_LOGIN)
+					.send(data)
+				assert.strictEqual(response?.statusCode, 401)
 			}
 		})
 	})
