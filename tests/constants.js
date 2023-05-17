@@ -20,3 +20,7 @@ export const nonexistingUserInDB = [
 	{ email: nonexistingEmailInDB[4], password: 'Testing1234' },
 	{ email: nonexistingEmailInDB[5], password: 'Testing1234' },
 ]
+export const existingEmailWithWrongPassword = [
+	{ email: existingEmail[0], password: 'NonexsistingPassword1234' },
+	{ email: existingEmail[1], password: 'NonexsistingPassword1234' },
+]
