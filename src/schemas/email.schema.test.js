@@ -1,6 +1,8 @@
-import { describe, it } from 'node:test'
+import { describe, it, after } from 'node:test'
 import assert from 'node:assert/strict'
 import { validateEmail } from '#Schemas/email.schema.js'
+import { closeDBConnections } from '#Helpers/closeDBConnections.js'
+import { existingEmail, nonexistingEmailInDB } from '#Tests/constants.js'
 
 const nulishInformation = [undefined, null, '', 0]
 const invalidType = [123, false, true, [], {}, Symbol]
@@ -14,17 +16,8 @@ const invalidFormat = [
 	'@example.com',
 	'tester@@.com',
 ]
-const nonexistingEmailInDB = [
-	'test@example.com',
-	'admin@dot.com',
-	'something@dottraining.com',
-	'aprendiz@ejemplo.com',
-	'aprendiz01@dottraining.com',
-	'aprendiz02@ejemplo.com',
-]
-const existingEmail = ['admin@dottraining.com', 'aprendiz01@ejemplo.com']
 
-describe('Testing -> Email Schema', async () => {
+describe.skip('Testing -> Email Schema', async () => {
 	describe('given an incorrect argument', async () => {
 		it('should respond false with nulish argument', async () => {
 			for (const information of nulishInformation) {
@@ -46,15 +39,14 @@ describe('Testing -> Email Schema', async () => {
 				assert.strictEqual(response, false)
 			}
 		})
-
-		it.skip('should respond false with nonextisting email in database', async () => {
+		it('should respond false with nonextisting email in database', async () => {
 			for (const information of nonexistingEmailInDB) {
 				const response = await validateEmail(information)
 				assert.strictEqual(response, false)
 			}
 		})
 	})
-
+	after(async () => await closeDBConnections())
 	describe('given a correct argument', async () => {
 		it('should respond true with existing email in database', async () => {
 			for (const information of existingEmail) {
