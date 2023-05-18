@@ -1,9 +1,11 @@
 import express from 'express'
+import cors from 'cors'
 import userRoutes from '#Routes/user.routes.js'
 
 const expressApp = express()
 
 console.clear()
+expressApp.use(cors())
 expressApp.use(express.json())
 expressApp.use((req, res, next) => {
 	console.log('\n\n👀 Reading information 🖥️')
