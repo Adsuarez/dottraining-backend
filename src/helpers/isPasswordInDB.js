@@ -1,11 +1,10 @@
 import { pool } from '#Config/db.js'
 
 export const isPasswordInDB = async (password, email) => {
-	const [[result]] = await pool.query(
-		'SELECT `email` FROM `user` WHERE `email` = ?',
-		[email]
+	const [[foundedPassword]] = await pool.query(
+		'SELECT `password` FROM `user` WHERE `email` = ? AND `password` = ?',
+		[email, password]
 	)
-	console.log({ result })
-	if (!result) return false
+	if (!foundedPassword) return false
 	return true
 }
