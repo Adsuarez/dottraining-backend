@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import userRoutes from '#Routes/user.routes.js'
+import trainingRoutes from '#Routes/training.routes.js'
 
 const expressApp = express()
 
@@ -16,6 +17,7 @@ expressApp.use((req, res, next) => {
 	next()
 })
 expressApp.use('/api', userRoutes)
+expressApp.use('/api', trainingRoutes)
 expressApp.use((error, req, res, next) => {
 	return res.status(500).json({
 		errorMessage: error.message,
