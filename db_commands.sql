@@ -17,6 +17,12 @@ DESCRIBE user;
 
 SELECT * FROM user;
 
-INSERT INTO user (email, password) VALUES ("admin@dottraining.com", "AdminPassword");
+INSERT INTO user (email, password) VALUES ("admin@dottraining.com", "AdminPassword123");
 
-INSERT INTO user (email, password) VALUES ("aprendiz01@ejemplo.com", "AprendizPassword");
+INSERT INTO user (email, password) VALUES ("aprendiz01@ejemplo.com", "AprendizPassword789");
+
+/* DELETE FROM user WHERE email = "admin@dottraining.com";
+
+DELETE FROM user WHERE email = "aprendiz01@ejemplo.com"; 
+
+SELECT `id`, `email` FROM `user` WHERE `email` = "admin@dottraining.com"; */
