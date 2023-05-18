@@ -18,6 +18,8 @@ export const createUser = (req, res, next) => {
 export const validateUser = async (req, res, next) => {
 	const { email } = req.body
 	const userForToken = await getUserFromDB(email)
-	const token = jwt.sign(userForToken, JWT_SECRET_KEY)
+	const token = jwt.sign(userForToken, JWT_SECRET_KEY, {
+		expiresIn: 60 * 60 * 24 * 7,
+	})
 	return res.status(202).json(token)
 }
