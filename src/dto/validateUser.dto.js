@@ -9,9 +9,11 @@ export function validateUserDTO(req, res, next) {
 	const amountInBody = Object.keys(body).length
 	if (amountInBody !== AMOUNT_OF_VALUES_LOGIN) return badRequest(res)
 
-	validateEmail(email).then((check) => {
-		if (check === false) return unauthorized(res)
-		// validatePassword(password, email)
-		next()
+	validateEmail(email).then((checkEmail) => {
+		if (checkEmail === false) return unauthorized(res)
+		validatePassword(password, email).then((checkPassword) => {
+			if (checkPassword === false) return unauthorized(res)
+			next()
+		})
 	})
 }
