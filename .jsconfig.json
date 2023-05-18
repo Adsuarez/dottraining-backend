@@ -10,6 +10,7 @@
 			"#Helpers/*": ["./src/helpers/*"],
 			"#Routes/*": ["./src/routes/*"],
 			"#Schemas/*": ["./src/schemas/*"],
+			"#Middleware/*": ["./src/middleware/*"],
 			"#Tests/*": ["./tests/*"]
 		}
 	}
