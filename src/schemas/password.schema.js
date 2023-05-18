@@ -9,8 +9,8 @@ export const passwordSchema = {
 export const validatePassword = async (password, email) => {
 	if (passwordSchema.required && !password) return false
 	if (typeof passwordSchema.type !== typeof password) return false
-	if (passwordSchema.format.test(password) !== true) return false
+	if (passwordSchema.format.test(password) === false) return false
 	const passwordCorrespondsEmail = await isPasswordInDB(password, email)
-	// console.log({ passwordCorrespondsEmail })
+	if (passwordCorrespondsEmail === false) return false
 	return true
 }
