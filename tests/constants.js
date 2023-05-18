@@ -24,3 +24,8 @@ export const existingEmailWithWrongPassword = [
 	{ email: existingEmail[0], password: 'NonexsistingPassword1234' },
 	{ email: existingEmail[1], password: 'NonexsistingPassword1234' },
 ]
+export const existingPassword = ['AdminPassword123', 'AprendizPassword789']
+export const existingUserInDB = [
+	{ email: existingEmail[0], password: existingPassword[0] },
+	{ email: existingEmail[1], password: existingPassword[1] },
+]
