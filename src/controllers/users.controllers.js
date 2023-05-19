@@ -21,5 +21,5 @@ export const validateUser = async (req, res, next) => {
 	const token = jwt.sign(userForToken, JWT_SECRET_KEY, {
 		expiresIn: 60 * 60 * 24 * 7,
 	})
-	return res.status(202).json(token)
+	return res.status(202).json({ token })
 }
