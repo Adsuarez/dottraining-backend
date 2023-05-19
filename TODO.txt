@@ -1,4 +1,5 @@
 - ✅ manage error in testing, because in validateUser pass its test due console log to catch error.
-- ❌ define if closeDBConnections is necesary or if make problems. It was created to solve terminal open listening needlessly DB.
+- ✅ define if closeDBConnections is necesary or if make problems. It was created to solve terminal open listening needlessly DB.
 - ✅ add closeDBConnection in password tests
 - ❌ implement handleError like middleware to control efficiently all errors, include json error with incorrect jwt
+- ✅ add error response in constants and json in errors.js
