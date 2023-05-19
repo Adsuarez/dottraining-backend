@@ -1,9 +1,9 @@
 POST http://localhost:3333/api/trainings  HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhZG1pbkBkb3R0cmFpbmluZy5jb20iLCJpYXQiOjE2ODQ0NDYxMzYsImV4cCI6MTY4NTA1MDkzNn0.ZSo2CXygwzlnDqlXwMZOcj_an4C8WB6xpKrw0WSLAyk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0X2FkbWluQGRvdHRyYWluaW5nLmNvbSIsImlhdCI6MTY4NDUxMTM0MiwiZXhwIjoxNjg1MTE2MTQyfQ.kWVCdGumjefOjMFfEBU6qBby2U0ZMXS_ZGAMmrci9sQ
 
 {
   "name": "Historia",
   "quotas": "6",
-  "studyDays": "[{'date':'2023-05-19','startTime':'17:15','endTime':'19:15'}]"
+  "studyDays": "[{\"date\":\"2023-05-19\",\"startTime\":\"17:15\",\"endTime\":\"19:15\"}]"
 }
