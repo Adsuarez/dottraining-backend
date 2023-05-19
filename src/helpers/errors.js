@@ -5,5 +5,9 @@ export const badRequest = (res) => {
 }
 
 export const unauthorized = (res) => {
-	return res.status(401).json()
+	return res.status(401).json(jsonErrorResponse[401])
+}
+
+export const notAceptable = (errorCode, res) => {
+	res.status(406).json([jsonErrorResponse[406], { errorCode }])
 }
