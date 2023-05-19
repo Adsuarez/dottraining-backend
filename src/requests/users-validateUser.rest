@@ -3,8 +3,8 @@ POST http://localhost:3333/api/users/login HTTP/1.1
 Content-type: application/json
 
 {
-    "email": "admin@dottraining.com",
-    "password": "AdminPassword"
+    "email": "test_admin@dottraining.com",
+    "password": "AdminPassword123"
 }
 
 // login ➡️ student user
@@ -13,31 +13,16 @@ POST http://localhost:3333/api/users/login HTTP/1.1
 Content-type: application/json
 
 {
-    "email": "aprendiz01@ejemplo.com",
-    "password": "AprendizPassword"
+    "email": "test_aprendiz@dottraining.com",
+    "password": "AprendizPassword789"
 }
 
+//login ➡️ correct data but nonexisting user in DB
 ###
-// login ➡️ empty info
 POST http://localhost:3333/api/users/login HTTP/1.1
-Content-type: application/application/json
+Content-type: application/json
 
 {
-
+    "email": "ZZZZ@nondottraining.com",
+    "password": "nonzzzAprendiz123"
 }
-
-###
-// login ➡️ wrong email
-POST http://localhost:3333/api/users/login HTTP/1.1
-Content-type: application/application/json
-
-{
-
-}
-
-###
-// login ➡️ empty body
-POST http://localhost:3333/api/users/login HTTP/1.1
-Content-type: application/application/json
-
-{}
