@@ -19,6 +19,7 @@ expressApp.use((req, res, next) => {
 expressApp.use('/api', userRoutes)
 expressApp.use('/api', trainingRoutes)
 expressApp.use((error, req, res, next) => {
+	console.error(error.code)
 	return res.status(500).json({
 		errorMessage: error.message,
 	})
