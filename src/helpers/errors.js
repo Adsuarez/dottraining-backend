@@ -8,6 +8,12 @@ export const unauthorized = (res) => {
 	return res.status(401).json(jsonErrorResponse[401])
 }
 
-export const notAceptable = (errorCode, res) => {
-	res.status(406).json([jsonErrorResponse[406], { errorCode }])
+export const notAceptable = (code, res) => {
+	let errorResponse = {}
+	if (code) {
+		errorResponse = jsonErrorResponse[406]
+		errorResponse.errorCode = code
+		return res.status(406).json(errorResponse)
+	}
+	return res.status(406).json(jsonErrorResponse[406])
 }
