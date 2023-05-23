@@ -10,7 +10,6 @@ export const createTraining = (req, res, next) => {
 		name,
 		quotas,
 		studyDays,
-		enrolledStudents: null,
 	}
 	saveTrainingInDB(newTraining)
 		.then((savedOk) => {
