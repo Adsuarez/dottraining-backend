@@ -10,9 +10,9 @@ export function validateUserDTO(req, res, next) {
 	if (amountInBody !== AMOUNT_OF_VALUES_LOGIN) return badRequest(res)
 
 	validateEmail(email).then((checkEmail) => {
-		if (checkEmail === false) return unauthorized(res)
+		if (checkEmail === false) return unauthorized(res, 401)
 		validatePassword(password, email).then((checkPassword) => {
-			if (checkPassword === false) return unauthorized(res)
+			if (checkPassword === false) return unauthorized(res, 401)
 			next()
 		})
 	})
