@@ -1,11 +1,13 @@
-import { jsonErrorResponse } from '#Config/constants.js'
+import { jsonErrorResponse, USER_PERMISSIONS } from '#Config/constants.js'
 import { saveTrainingInDB } from '#Helpers/saveTrainingInDB.js'
-import { notAceptable } from '#Helpers/errors.js'
+import { notAceptable, unauthorized } from '#Helpers/errors.js'
 import { getTrainingsFromDB } from '#Helpers/getTrainingsFromDB.js'
 
 export const createTraining = (req, res, next) => {
 	const { body, userId } = req
-	const { name, quotas, date, startTime, endTime } = body
+	const { trainingToCreate, permissions } = body
+	if (permissions !== USER_PERMISSIONS.ADMIN_USER) return unauthorized(res, 405)
+	const { name, quotas, date, startTime, endTime } = trainingToCreate
 	const newTraining = {
 		createdBy: userId,
 		name,
