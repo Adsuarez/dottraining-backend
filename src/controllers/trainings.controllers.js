@@ -16,7 +16,7 @@ export const createTraining = (req, res, next) => {
 	saveTrainingInDB(newTraining)
 		.then((savedOk) => {
 			if (!savedOk) return res.status(406).json(jsonErrorResponse[406])
-			return res.sendStatus(201).json(newTraining)
+			return res.status(201).json(newTraining)
 		})
 		.catch(({ code }) => notAceptable(code, res))
 }
