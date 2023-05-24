@@ -14,3 +14,12 @@ export const validateEmail = async (email) => {
 	if (existEmailInDB === false) return false
 	return true
 }
+
+export const validateEmailToRegister = async (email) => {
+	if (emailSchema.required && !email) return false
+	if (typeof email !== typeof emailSchema.type) return false
+	if (emailSchema.format.test(email) !== true) return false
+	const existEmailInDB = await isEmailInDB(email)
+	if (existEmailInDB) return false
+	return true
+}
