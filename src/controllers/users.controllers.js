@@ -12,8 +12,9 @@ export const getUsers = (req, res, next) => {
 }
 
 export const createUser = (req, res, next) => {
-	console.log(req.body)
-	return res.json(req.body)
+	const { email, password } = req.body
+	console.log({ email, password })
+	return res.json()
 }
 
 export const validateUser = async (req, res, next) => {
