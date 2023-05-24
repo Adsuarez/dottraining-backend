@@ -4,8 +4,8 @@ export const badRequest = (res) => {
 	return res.status(400).json(jsonErrorResponse[400])
 }
 
-export const unauthorized = (res) => {
-	return res.status(401).json(jsonErrorResponse[401])
+export const unauthorized = (res, codeStatus) => {
+	return res.status(codeStatus).json(jsonErrorResponse[codeStatus])
 }
 
 export const notAceptable = (code, res) => {
