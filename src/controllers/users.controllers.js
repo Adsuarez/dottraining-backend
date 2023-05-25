@@ -1,7 +1,9 @@
 import jwt from 'jsonwebtoken'
-import { getUserFromDB } from '#Helpers/getUserFromDB.js'
 import { JWT_SECRET_KEY } from '#Config/environment.js'
+import { getUserFromDB } from '#Helpers/getUserFromDB.js'
 import { createDefaultUsername } from '#Helpers/createDefaultUsername.js'
+import { saveUserInDB } from '#Helpers/saveUserInDB.js'
+import { badRequest, notAceptable } from '#Helpers/errors.js'
 
 export const getUsers = (req, res, next) => {
 	return res.json([
@@ -13,8 +15,12 @@ export const getUsers = (req, res, next) => {
 
 export const createUser = (req, res, next) => {
 	const { email, password } = req.body
-	console.log({ email, password })
-	return res.json()
+	saveUserInDB({ email, password })
+		.then((isSavedOk) => {
+			if (!isSavedOk) return badRequest(res)
+			return res.status(201).json({ email })
+		})
+		.catch(({ code }) => notAceptable(code, res))
 }
 
 export const validateUser = async (req, res, next) => {
