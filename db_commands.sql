@@ -58,3 +58,5 @@ SELECT * FROM training;
 DELETE FROM training WHERE id >= 15;
 
 DROP TABLE training; 
+
+/* UPDATE training SET enrolledStudents = IFNULL(2, permissions) WHERE id = 3;*/
