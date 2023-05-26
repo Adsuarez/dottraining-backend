@@ -36,8 +36,21 @@ export const getTrainings = (req, res, next) => {
 export const enrollTraining = (req, res, next) => {
 	const { userId, body } = req
 	const { trainingId } = body
-	updateTrainingInDB({ trainingId, userId }).then((isUpdating) => {
-		if (!isUpdating) return res.status(409).json({ errorMessage: 'conflict' })
-		res.status(202).json({ trainingId, userId })
-	})
+	updateTrainingInDB({ trainingId, userId, action: 'enroll' }).then(
+		(isUpdating) => {
+			if (!isUpdating) return res.status(409).json({ errorMessage: 'conflict' })
+			res.status(202).json({ trainingId, userId })
+		}
+	)
+}
+
+export const cancelTraining = (req, res, next) => {
+	const { userId, body } = req
+	const { trainingId } = body
+	updateTrainingInDB({ trainingId, userId, action: 'cancel' }).then(
+		(isUpdating) => {
+			if (!isUpdating) return res.status(409).json({ errorMessage: 'conflict' })
+			res.status(202).json({ trainingId, userId })
+		}
+	)
 }
