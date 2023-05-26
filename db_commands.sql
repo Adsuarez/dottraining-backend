@@ -59,6 +59,7 @@ DELETE FROM training WHERE id >= 15;
 
 DROP TABLE training; 
 
-SELECT enrolledStudents FROM training WHERE id = 1;
+SELECT enrolledStudents FROM training WHERE id = 2;
 
 UPDATE training SET enrolledStudents = IFNULL("[]", enrolledStudents) WHERE id = 1;
+UPDATE training SET enrolledStudents = NULL WHERE id = 2;
