@@ -7,7 +7,6 @@ export const updateTrainingInDB = async ({ trainingId, userId, action }) => {
 		[trainingId]
 	)
 
-	console.log({ quotas })
 	return getEnrolledStudentsFromDB({ trainingId }).then((array) => {
 		let newArray
 
