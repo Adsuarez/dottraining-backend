@@ -63,3 +63,4 @@ SELECT enrolledStudents FROM training WHERE id = 2;
 
 UPDATE training SET enrolledStudents = IFNULL("[]", enrolledStudents) WHERE id = 1;
 UPDATE training SET enrolledStudents = NULL WHERE id = 2;
+SELECT id, studyDays FROM training;
