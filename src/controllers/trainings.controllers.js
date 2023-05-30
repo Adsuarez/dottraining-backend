@@ -5,12 +5,11 @@ import { getTrainingsFromDB } from '#Helpers/getTrainingsFromDB.js'
 import { updateTrainingInDB } from '#Helpers/updateTrainingInDB.js'
 
 export const createTraining = (req, res, next) => {
-	const { body, userId } = req
+	const { body } = req
 	const { trainingToCreate, permissions } = body
 	if (permissions !== USER_PERMISSIONS.ADMIN_USER) return unauthorized(res, 405)
 	const { name, quotas, date, startTime, endTime } = trainingToCreate
 	const newTraining = {
-		createdBy: userId,
 		name,
 		quotas,
 		date,

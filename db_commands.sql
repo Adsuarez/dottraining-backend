@@ -21,7 +21,7 @@ SELECT * FROM user;
 
 /* INSERT INTO user (email, password, permissions) VALUES ("test_admin@dottraining.com", "AdminPassword123", 0);
 
-INSERT INTO user (email, password, permissions) VALUES ("test_aprendiz@dottraining.com", "AprendizPassword789", 0);
+INSERT INTO user (email, password, permissions) VALUES ("test_student@dottraining.com", "StudentPassword123", 0);
 
 DELETE FROM user WHERE email = "admin@dottraining.com";
 
@@ -38,13 +38,11 @@ DELETE FROM user WHERE id >= 1;
 /*------------Training table commands-------------*/
 CREATE TABLE IF NOT EXISTS `training` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-    `createdBy` INT,
     `name` VARCHAR(100) NOT NULL,
     `quotas` INT,
     `studyDays` JSON DEFAULT NULL,
     `enrolledStudents` JSON DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    FOREIGN KEY (`createdBy`) REFERENCES user(`id`)
+    PRIMARY KEY (`id`)
 );
 
 DESCRIBE training;
