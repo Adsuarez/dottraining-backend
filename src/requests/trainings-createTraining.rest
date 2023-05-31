@@ -1,12 +1,15 @@
 ###
 POST http://localhost:3333/api/trainings  HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0X2FkbWluQGRvdHRyYWluaW5nLmNvbSIsInBlcm1pc3Npb25zIjowLCJpYXQiOjE2ODQ4NzU1MjAsImV4cCI6MTY4NTQ4MDMyMH0.uo15qEkfNHrckha4djPYKSsu0glYDfMaqbL27subwMY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0X2FkbWluQGRvdHRyYWluaW5nLmNvbSIsInBlcm1pc3Npb25zIjoxLCJpYXQiOjE2ODU1NTI1MzAsImV4cCI6MTY4NjE1NzMzMH0.wbt9U4IyA5IoAgsaMdwmgErFks-qyJAl7ROx7m1E_GQ
 
 {
-  "name": "Historia",
-  "quotas": "6",
-  "date": "2023-05-19",
-  "startTime": "17:15",
-  "endTime": "20:00"
+  "trainingToCreate": '{
+    "name": "Historia",
+    "quotas": "6",
+    "date": "2023-05-19",
+    "startTime": "17:15",
+    "endTime": "20:00",
+    }',
+    "permissions": 1
 }

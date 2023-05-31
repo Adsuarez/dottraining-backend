@@ -6,10 +6,11 @@ export const saveTrainingInDB = async (newTraining) => {
 	const parseStudyDays = JSON.stringify(studyDays)
 	const parserQuotas = Number(quotas)
 	return pool
-		.query(
-			'INSERT INTO training (name, quotas, studyDays) VALUES (?, ?, ?, ?)',
-			[name, parserQuotas, parseStudyDays]
-		)
+		.query('INSERT INTO training (name, quotas, studyDays) VALUES (?, ?, ?)', [
+			name,
+			parserQuotas,
+			parseStudyDays,
+		])
 		.then(([row]) => {
 			if (!row.affectedRows) return false
 			return true

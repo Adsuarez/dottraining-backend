@@ -19,9 +19,9 @@ DESCRIBE user;
 
 SELECT * FROM user;
 
-/* INSERT INTO user (email, password, permissions) VALUES ("test_admin@dottraining.com", "AdminPassword123", 0);
+INSERT INTO user (email, password, permissions) VALUES ("test_admin@dottraining.com", "AdminPassword123", 1);
 
-INSERT INTO user (email, password, permissions) VALUES ("test_student@dottraining.com", "StudentPassword123", 0);
+INSERT INTO user (email, password, permissions) VALUES ("test_student@dottraining.com", "StudentPassword123", 2);
 
 DELETE FROM user WHERE email = "admin@dottraining.com";
 
@@ -29,7 +29,7 @@ DELETE FROM user WHERE email = "aprendiz01@ejemplo.com";
 
 SELECT `id`, `email` FROM `user` WHERE `email` = "admin@dottraining.com";
 
-DROP TABLE user;  */
+DROP TABLE user; 
 
 DELETE FROM user WHERE id >= 1;
 
