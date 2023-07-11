@@ -10,3 +10,4 @@ export const PASSWORD = process.env.DB_PASSWORD
 export const DATABASE = process.env.DB_DATABASE
 export const DB_PORT = process.env.DB_PORT
 export const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY
+export const FRONT_URL = process.env.FRONT_URL
