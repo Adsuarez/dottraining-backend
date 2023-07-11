@@ -6,7 +6,7 @@ import { FRONT_URL } from './environment.js'
 const expressApp = express()
 
 console.clear()
-expressApp.use(cors({ origin: FRONT_URL }))
+expressApp.use('/', cors({ origin: FRONT_URL }))
 expressApp.use(express.json())
 expressApp.use((req, res, next) => {
 	console.log('\n\n👀 Reading information 🖥️')
